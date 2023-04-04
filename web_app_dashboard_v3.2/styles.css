@@ -1,7 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 
+* {
+    box-sizing: border-box;
+}
 
+body {
+    font-family: 'Varela Round', sans-serif;
+    margin: 0px;
 
-img {
+}
+
+/*=========================================
+Header
+===========================================*/
+header {
+    display: flex;
+    background-color: rgb(151, 145, 206);
+    color: white;
+    max-width: 100%;
+}
+header h1 {
+    padding: 10px;
+    margin-right: 25px;
+}
+
+div.bell {
+    width: 40px;
+    padding: 7px;
+    margin-top: 20px;
+    border-right: solid 1px rgb(242, 235, 235);
+}
+
+#profile {
+    width: 55px;
+    height: 55px;
+    padding: 5px;
+    margin-top: 15px;
+}
+header h3 {
+    margin-top: 30px;
+    font-size: 14px;
+    margin-left: 15px;
+}
+
+/*=========================================
+Main Elements
+===========================================*/
+
+main {
+    height: 100vh;
+    display: grid;
+	grid-template-columns: 1fr;
+	grid-auto-rows:minmax(70px, auto);
+	grid-template-areas:
+		"nav"
+		"dash"
+		"alert"
+		"aside"
+		"footer";
+
+}
+
+div.a {
+    margin: 15px 0px;
+    width: 40px;
+
+}
+nav {
+    display: flex;
+    justify-content: space-evenly;
+    background-color:rgb(97, 92, 145);
+    grid-area: nav;
+    height: 70px;
+
+}
+
+#dashboard {
+    display: flex;
+    grid-area: dash;
+    height: 70px;
+
+}
+#dashboard h2 {
+    width: 35%;
+    margin-left: 20px;
+}
+#gray-space {
+    background-color:rgb(241, 240, 244);
+    height: 100%;
+    width: 65%;
+    grid-area: gray; 
+}
+#alert {
+    display: flex;
+    justify-content: space-between;
+    border-radius: 10px;
+    color: white;
+    grid-area: alert;
+    background-color: rgb(151, 145, 206);
+}
+
+.pic {
     border-radius: 50%;
 }
 /*=========================================
@@ -70,4 +169,18 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+/*=========================================
+Media queries
+===========================================*/
+
+@media screen and (min-width: 768px) {
+
+    header {
+       justify-content: flex-end;
+    }
+    header h3 {
+        margin-right: 10px;
+    }
 }

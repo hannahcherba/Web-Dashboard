@@ -11,35 +11,47 @@
 <header>
     <h1>WebApp&#8482</h1>
     <div>
+        <div class="bell">
         <img id="bell" src="svgs/bell.svg" alt="Notifications bell image.">
-        <div id="notifications">
-
         </div>
+
+        <div id="notifications"></div>
+
     </div>
-    <img src="images/member-1.jpg" alt="student picture">
+
+    <img class="pic" id="profile" src="images/member-1.jpg" alt="student picture">
     <h3>Victoria Chambers</h3>
 
 </header>
 
-<nav>
-    <a><img src="svgs/home.svg" alt="home"></a>
-    <a><img src="svgs/bar-chart.svg" alt="charts"></a>
-    <a><img src="svgs/members.svg" alt="members"></a>
-    <a><img src="svgs/settings.svg" alt="settings"></a>
-</nav>
-
 <body>
+    <div id="alert">
+        <p id="alert-message"><strong>Alert:</strong> You have unread messages</p>
+        <p id="x-btn">X</p>
+    </div>
 
     <main>
 
+        <nav>
+            <div class="a">
+            <a><img class="house" src="svgs/home.svg" alt="home"></a>
+            </div>
+        
+            <div class="a">
+            <a><img src="svgs/bar-chart.svg" alt="charts"></a>
+            </div>
+        
+            <div class="a">
+                <a><img src="svgs/members.svg" alt="members"></a>
+            </div>
+            <div class="a">
+                <a><img class="settings" src="svgs/settings.svg" alt="settings"></a>
+            </div>
+        </nav>
+
         <div id="dashboard">
             <h2>Dashboard</h2>
-            <div id="gray-space"></div>
-        </div>
-
-        <div id="alert">
-            <p id="alert-message"><strong>Alert:</strong> You have unread messages</p>
-            <p id="x-btn">X</p>
+            <div id="gray-space"></div> </div>
         </div>
         
         <div id="traffic">
@@ -101,28 +113,28 @@
             <h3>NEW MEMBERS</h3>
 
            <div class="member">
-                <img src="images/member-1.jpg" alt="member picture"
+                <img class="pic" src="images/member-1.jpg" alt="member picture"
                 <h4>Victoria Chambers</h4>
                 <p>victoria.chambers80@example.com</p>
                 <p>04/08/23</p>
            </div>
 
            <div class="member">
-                <img src="images/member-2.jpg" alt="member picture"
+                <img class="pic" src="images/member-2.jpg" alt="member picture"
                 <h4>Dale Byrd</h4>
                 <p>dale.byrd52@example.com</p>
                 <p>04/08/23</p>
            </div>
 
            <div class="member">
-                <img src="images/member-3.jpg" alt="member picture"
+                <img class="pic" src="images/member-3.jpg" alt="member picture"
                 <h4>Daun Wood</h4>
                 <p>daun.wood16@example.com</p>
                 <p>04/08/23</p>
            </div>
 
            <div class="member">
-                <img src="images/member-4.jpg" alt="member picture"
+                <img class="pic" src="images/member-4.jpg" alt="member picture"
                 <h4>Dan Oliver</h4>
                 <p>dan.oliver82@example.com</p>
                 <p>04/08/23</p>
@@ -133,25 +145,25 @@
         <div id="recent-activity">
 
             <div class="activity">
-                <img src="images/member-1.jpg" alt="member picture"
+                <img class="pic" src="images/member-1.jpg" alt="member picture"
                 <h4>Victoria Chambers commented on <strong>WebApp's SEO Tips</strong></h4>
                 <p>4 hours ago</p>
             </div>
 
             <div class="activity">
-                <img src="images/member-2.jpg" alt="member picture"
+                <img class="pic" src="images/member-2.jpg" alt="member picture"
                 <h4>Dale Byrd liked the post <strong>Facebook's Changes for 2021</strong></h4>
                 <p>5 hours ago</p>
             </div>
 
             <div class="activity">
-                <img src="images/member-3.jpg" alt="member picture"
+                <img class="pic" src="images/member-3.jpg" alt="member picture"
                 <h4>Daun Wood commented on <strong>Facebook's Changes for 2021</strong></h4>
                 <p>5 hours ago</p>
             </div>
 
             <div class="activity">
-                <img src="images/member-4.jpg" alt="member picture"
+                <img class="pic" src="images/member-4.jpg" alt="member picture"
                 <h4>Dan Oliver posted <strong>WebApp's SEO Tips</strong></h4>
                 <p>1 day ago</p>
             </div>
