@@ -30,6 +30,13 @@ div.bell {
     margin-top: 20px;
     border-right: solid 1px rgb(242, 235, 235);
 }
+/* img #bell {
+    transform-origin: 0 0;
+}
+img #bell:hover {
+    /* transition: all 0.75s cubic-bezier(0.68, -0.55, 0.265, 1.55 ); */
+    /* transform: scale(1.2); 
+} */
 
 #profile {
     width: 55px;
@@ -39,8 +46,8 @@ div.bell {
 }
 header h3 {
     margin-top: 30px;
-    font-size: 14px;
-    margin-left: 15px;
+    font-size: 13px;
+    margin-left: 7px;
 }
 
 /*=========================================
@@ -49,15 +56,15 @@ Main Elements
 
 main {
     height: 100vh;
-    display: grid;
-	grid-template-columns: 1fr;
-	grid-auto-rows:minmax(70px, auto);
-	grid-template-areas:
-		"nav"
-		"dash"
-		"alert"
-		"aside"
-		"footer";
+    /* display: grid;
+	/* grid-template-columns:;
+	grid-auto-rows: auto; */
+	/* grid-template-areas:
+		"nav",
+		"dash",
+		"alert",
+		"traffic",
+		"daily"; */ 
 
 }
 
@@ -90,16 +97,81 @@ nav {
     height: 100%;
     width: 65%;
     grid-area: gray; 
+    border-left: solid 1px rgb(214, 209, 209);
+    border-bottom: solid 1px rgb(214, 209, 209);
 }
 #alert {
     display: flex;
     justify-content: space-between;
-    border-radius: 10px;
+    border-radius: 7px;
+    width: 90%;
+    margin: 15px auto auto auto;
     color: white;
-    grid-area: alert;
     background-color: rgb(151, 145, 206);
 }
+#alert-message {
+    margin-left: 10px;
+    font-size: 15px;
+}
 
+#x-btn {
+    margin-right: 15px;
+    font-size: 15px;
+}
+
+#traffic {
+    grid-area: traffic;
+    display: flex;
+    margin-top: 15px;
+    flex-direction: column;
+}
+#traffic, #daily-traffic, 
+#mobile-users, #social-stats,
+#new-members, #recent-activity,
+#message, #settings {
+    border-bottom: solid 1px rgb(214, 209, 209);
+}
+#traffic h3.main, #daily-traffic h3, 
+#mobile-users h3, #social-stats h3,
+#new-members h3, #recent-activity h3,
+#message h3, #settings h3 {
+    margin-left: 20px;
+    width: 100%;
+    justify-content: flex-start;
+    margin-bottom: 0;
+}
+div.links ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 5px;
+    padding: 0;
+}
+
+div.links a {
+    text-decoration: none;
+    color: black;
+    font-size: 17px;
+    
+}
+
+div.links a:hover {
+    color: white;
+}
+
+div.links li:hover {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(154, 208, 154);
+    border-radius: 15px;
+    padding: 5px;
+    height: 35px;
+    width: 75px;
+}
+
+#daily-traffic {
+    grid-area: daily;
+}
 .pic {
     border-radius: 50%;
 }
