@@ -204,10 +204,11 @@ img.placeholder {
 #mobile-users h3, #social-container h3,
 #new-members h3, #recent-activity h3,
 #message h3, #settings h3 {
-    margin-left: 20px;
-    width: 100%;
+    /* margin-left: 20px; */
+    /* width: 100%; */
     justify-content: flex-start;
     margin-bottom: 0;
+    padding-left: 20px;
 }
 #daily-traffic {
     grid-area: daily;
@@ -580,7 +581,7 @@ Media queries
         color:rgb(151, 145, 206);
     }
     .switch {
-        margin-right: 400px;
+        margin-right: 300px;
     }
 }
 
@@ -591,6 +592,10 @@ Media queries
         "header header header" 
         "nav main main" ;
     }
+    header {
+        justify-content: space-between;
+        min-width: 1500px;
+     }
     main {
         grid-template-columns: 1fr 1fr;
         grid-template-areas:
