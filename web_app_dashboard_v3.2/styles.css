@@ -6,8 +6,13 @@
 
 body {
     font-family: 'Varela Round', sans-serif;
-    margin: -8px;
-    /* display: grid; */
+    margin: 0px;
+    display: grid;
+    grid-template-columns:1fr;
+      grid-template-areas: 
+      "header" 
+      "nav" 
+     'main';
 
 }
 
@@ -15,21 +20,36 @@ body {
 Header
 ===========================================*/
 header {
-    display: flex;
-    background-color: rgb(151, 145, 206);
     color: white;
     max-width: 100%;
     grid-area: header;
+}
+header, nav, #alert, #dashboard, #traffic,
+#traffic ul, #fb, #insta, #twitter, .member-container,
+ .member-text, #message, form.contact-widget, #settings,
+ .slider-container, div.btn-settings  {
+    display: flex;
+}
+header, #alert, #fb, #insta, #twitter,
+ button.btn, .btn-primary, 
+ input:checked + .slider {
+    background-color: rgb(151, 145, 206);
 }
 header h1 {
     padding: 10px;
     margin-right: 25px;
 }
+header div.container {
+    display:flex;
+    flex-direction: row;
+}
 
 div.bell {
-    width: 55px;
-    padding: 7px;
+    width: 50px;
+    height: 55px;
+    padding: 12px 15px 7px 7px;
     margin-top: 20px;
+    margin-right: 5px;
     border-right: solid 1px rgb(242, 235, 235);
 }
 .bell-icon {
@@ -39,6 +59,14 @@ div.bell {
 .bell-icon:hover {
     transition: all 0.75s cubic-bezier(0.68, -0.55, 0.265, 1.55 ); 
     transform: rotate(20deg);
+}
+span.dot-notification {
+    background-color: rgb(144, 230, 144);
+    border-radius: 50%;
+    max-width: 3px;
+    height: 3px;
+    margin-top: 25px;
+    transform: translateX(-22px);
 }
 
 #profile {
@@ -54,19 +82,43 @@ div.bell {
 
 header h3 {
     margin-top: 30px;
-    font-size: 13px;
+    font-size: 11px;
     margin-left: 7px;
 }
-
 /*=========================================
 ------------------------------------------
 MAIN ELEMENTS: 
 __________________________________________
 ==========================================*/
+main {
+    grid-area: main;
+    display: grid;
+    grid-template-columns:1fr;
+    grid-template-areas: 
+      'dash'
+      'alert'
+      'traffic' 
+      'daily'
+      'mobile'
+      'social'
+      'members'
+      'activity'
+      'message'
+      'settings';
+
+}
 
 /*=========================================
 Nav and Alert
 ===========================================*/
+
+nav {
+    background-color:rgb(97, 92, 145);
+    grid-area: nav;
+}
+nav, #traffic ul {
+    justify-content: space-evenly;
+}
 a.main-a {
     margin: 15px 0px;
     width: 40px;
@@ -80,22 +132,13 @@ a.main-a:hover {
     fill: white;
 }
 
-nav {
-    display: flex;
-    justify-content: space-evenly;
-    background-color:rgb(97, 92, 145);
-    grid-area: nav;
-    height: 70px;
-}
-
 #alert {
-    display: flex;
     justify-content: space-between;
     border-radius: 7px;
     width: 90%;
     margin: 15px auto auto auto;
     color: white;
-    background-color: rgb(151, 145, 206);
+    grid-area: alert;
 }
 #alert-message {
     margin-left: 10px;
@@ -106,37 +149,34 @@ nav {
     margin-right: 15px;
     font-size: 15px;
 }
+
 /*==============================================
 Dashboard, traffic, daily traffic, mobile users:
 ===============================================*/
 #dashboard {
-    display: flex;
     grid-area: dash;
     height: 70px;
 
 }
 #dashboard h2 {
-    width: 35%;
+    width: 250px;
     margin-left: 20px;
 }
 #gray-space {
     background-color:rgb(241, 240, 244);
     height: 100%;
-    width: 65%;
-    grid-area: gray; 
+    width: 100%;
     border-left: solid 1px rgb(214, 209, 209);
     border-bottom: solid 1px rgb(214, 209, 209);
 }
+
 #traffic {
     grid-area: traffic;
-    display: flex;
     margin-top: 15px;
     flex-direction: column;
 }
 #traffic ul {
     list-style-type: none;
-    display: flex;
-    justify-content: space-evenly;
     margin: 5px;
     padding: 0;
 }
@@ -145,7 +185,6 @@ Dashboard, traffic, daily traffic, mobile users:
     font-size: 16px;
     margin-top: 5px;
 }
-
 /* ----------
 temp image
 ---------- */
@@ -173,18 +212,20 @@ img.placeholder {
 #daily-traffic {
     grid-area: daily;
 }
+#mobile-users {
+    grid-area: mobile;
+}
 
 /*=========================================
 Social Media Widgets
 ===========================================*/
 #social-container {
     padding-bottom: 10px;
+    grid-area: social;
 }
 
 #fb, #insta, #twitter {
-    display: flex;
     justify-content: center;
-    background-color:rgb(151, 145, 206);
     border-radius: 50%;
     width: 70px;
     height: 70px;
@@ -221,8 +262,19 @@ New Member, Recent Activity, Message, and
 Settings widgets:
 ===========================================*/
 
+#new-members {
+    grid-area: members;
+}
+#recent-activity {
+    grid-area: activity;
+}
+#message {
+    grid-area: message;
+}
+#settings {
+    grid-area: settings;
+}
 .member-container, .member-text {
-    display: flex;
     flex-direction: column;
     align-items: center;
 }
@@ -235,12 +287,15 @@ Settings widgets:
 }
 .member-text a {
     text-decoration: none;
-    color:  rgb(151, 145, 206);
+    color: rgb(151, 145, 206);
 }
 .activity-text {
     width: 70%;
     text-align: center;
     color: rgb(29, 27, 27); 
+}
+.member-arrow  {
+    display: none;
 }
 .activity-text a {
     color: black;
@@ -255,24 +310,23 @@ Settings widgets:
     margin-top: 0px;
 }
 #message, form.contact-widget {
-    display: flex;
     flex-direction: column;
 }
 form.contact-widget {
     justify-content: center;
     margin: 20px 15px 10px 15px;
 }
-input.form-field, textarea#msg-txt, button.btn, select, .select_box {
+input.form-field, textarea#msg-txt, button.btn{
     margin-bottom: 15px;
     border-radius: 5px;
     border:  solid 1px rgb(214, 209, 209);
     font-family: 'Varela Round', sans-serif;
 }
-input.form-field, textarea#msg-txt, select, .select_box {
+input.form-field, textarea#msg-txt, select {
     background-color:rgb(245, 245, 247);
     font-size: 15px;
 }
-input.form-field, button.btn, select,  .select_box {
+input.form-field, button.btn, .select-container{
     height: 50px;
 }
 textarea#msg-txt {
@@ -285,17 +339,14 @@ input.form-field::placeholder, textarea#msg-txt::placeholder, select {
     color:rgb(167, 164, 164);
 }
 button.btn, .btn-primary, .btn-disabled {
-    background-color:rgb(151, 145, 206);
     border:rgb(80, 68, 189);
     color: white;
     font-size: 17px;
 }
 #settings {
-    display: flex;
     flex-direction: column;
 }
 .slider-container {
-    display: flex;
     flex-direction: row;
     justify-content: space-between;
     margin: 10px;
@@ -305,39 +356,29 @@ button.btn, .btn-primary, .btn-disabled {
     color: rgb(57, 50, 50); 
     margin-left: 20px;
 }
-select {
-    text-indent: 10px;
-}
-
-.select_box{
-    width: 90%;
-    align-self: center;
-    overflow: hidden;
-    position: relative;
-    padding: 10px 0;
-  }
-  .select_box:after{
-    width: 0; 
-    height: 0;
-    border-left: 12px solid transparent;
-    border-right: 12px solid transparent;
-    border-top: 12px solid rgb(151, 145, 206);
-    position: absolute;
-    top: 40%;
-    right: 5px;
-    content: "";
-    z-index: 98;
-   }
-  .select_box select{
-    padding-bottom: 20px;
+.select-container select {
+    background: transparent;
     width: 100%;
-    border: 0;
-    position: relative;
-    z-index: 99;
-    background: none;
+    height: 100%;
+    border-radius: 7px;
+    appearance: none;
+    padding: 5px;
+    text-indent: 10px;
+    border: none;
   }
+  
+.select-container {
+    background: url("placeholder-images/arrow2.PNG") no-repeat right #ffffff;
+    background-size: 50px;
+    border:  solid 1px rgb(214, 209, 209);
+    background-color:rgb(245, 245, 247);
+    border-radius: 7px;
+    width: 90%;
+    overflow: hidden;
+    align-self: center;
+    margin-top: 45px;
+}
 div.btn-settings {
-    display: flex;
     flex-direction: row;
     justify-content: space-between;
     margin: 10px;
@@ -348,7 +389,9 @@ div.btn-settings {
     border-radius: 7px;
     margin: 10px 20px;
 }
-
+.btn-disabled {
+    background-color:  rgb(180, 177, 177);
+}
 /*=========================================
 Slider checkbox tutorial from 
 https://www.w3schools.com/howto/howto_css_switch.asp
@@ -360,6 +403,7 @@ https://www.w3schools.com/howto/howto_css_switch.asp
   display: inline-block;
   width: 100px;
   height: 35px;
+  margin-right: 20px;
 }
 /* Hide default HTML checkbox */
 .switch input {
@@ -393,13 +437,13 @@ https://www.w3schools.com/howto/howto_css_switch.asp
   transition: .4s;
 }
 
-input:checked + .slider {
+/* input:checked + .slider {
   background-color: rgb(151, 145, 206);
-}
+} */
 
 input:focus + .slider {
   box-shadow: 0 0 1px rgb(80, 68, 189);
-  border:  solid 1px rgb(231, 227, 227);
+  border:  solid 1px  rgb(180, 177, 177);
 }
 
 input:checked + .slider:before {
@@ -416,17 +460,152 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+.slider-container{
+    margin-top: 20px;
+}
+span {
+    font-size: 12px;
+    color: white;
+    padding-top: 9px;
+    padding-left: 8px;
+}
 
 /*=========================================
 Media queries
 ===========================================*/
-
+@media screen and (min-width: 390px) {
+    #dashboard h2 {
+        width: 200px;
+        margin-left: 20px;
+    }
+}
 @media screen and (min-width: 768px) {
+    body {
+        grid-template-columns: 0.5fr 2fr 2fr;
+        grid-template-areas: 
+        "header header header" 
+        "nav main main" ;
+    }
 
     header {
-       justify-content: flex-end;
+       justify-content: space-between;
+       min-width: 900px;
+    }
+    header h1 {
+        margin-left: 20px;
+    }
+    header div.container {
+        margin-right: 30px;
     }
     header h3 {
-        margin-right: 10px;
+        font-size: 15px;
+    }
+    a.main-a {
+        margin: 20px auto;
+    }
+    nav {
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+    main {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+        'dash dash'
+        "alert alert" 
+        'traffic traffic'
+        'daily mobile' 
+        'social social'
+        'members members'
+        'activity activity'
+        'message message'
+        'settings settings'; 
+
+    }
+    #traffic ul {
+        justify-content: flex-end;
+    }
+    ul li {
+        margin-right: 20px;
+    }
+    #daily-traffic {
+        border-right:  solid 1px rgb(231, 227, 227);
+    }
+    .social-c{
+        display: flex;
+        justify-content: space-evenly;
+    }
+    .social {
+        width: 31%;
+    }
+    .fb-container {
+        margin-left: 20px;
+    }
+    #new-members {
+        justify-content: flex-start;
+    }
+    .member-container {
+        align-items: flex-start;
+        flex-direction: row;
+    }
+    .member-container img {
+        margin-left: 10px;
+        margin-bottom: 10px;
+    }
+    .new-mem-txt, .activity-text{
+        align-items: flex-start;
+        margin-left: 30px;
+        font-size: 11px;
+    }
+    .member-text{
+        width: 70%;
+    }
+    .new-mem-txt p {
+        align-self: flex-end;
+    }
+    
+    .activity-text h4 {
+       text-align: left;
+    }
+    p.member-arrow, .member-container p.date {
+        display:flex;
+        padding-left: 30%;
+    }
+    .member-container p.date {
+        padding-right: 10px;
+        font-size: 13px;
+        padding-left: 20%;
+    }
+    p.member-arrow {
+        font-size: 20px;
+        color:rgb(151, 145, 206);
+    }
+    .switch {
+        margin-right: 400px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    body {
+        grid-template-columns: 0.35fr 2fr 2fr;
+        grid-template-areas: 
+        "header header header" 
+        "nav main main" ;
+    }
+    main {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+        'dash dash'
+        "alert alert" 
+        'traffic traffic'
+        'daily mobile' 
+        'social social'
+        'members activity'
+        'message settings'; 
+    }
+    #message, #new-members {
+        border-right:  solid 1px rgb(231, 227, 227);
+    }
+    p.member-arrow {
+        padding-left: 25%;
     }
 }
