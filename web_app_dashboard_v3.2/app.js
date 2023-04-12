@@ -1,4 +1,21 @@
 /*-----------------------------
+Alert Notification:
+Should appear at first, but disapear when x is pressed.
+------------------------------*/
+function alertBtn(){
+    let alert= document.getElementById('alert');
+    let xBtn = document.getElementById('x-btn');
+    xBtn.addEventListener('click', (e)=> {
+        
+    })
+}
+alertBtn();
+
+
+
+
+
+/*-----------------------------
 The JS Search
 ------------------------------*/
 //Create an array of names

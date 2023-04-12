@@ -141,12 +141,12 @@ a.main-a:hover {
     grid-area: alert;
 }
 #alert-message {
-    margin-left: 10px;
+    padding-left: 10px;
     font-size: 15px;
 }
 
 #x-btn {
-    margin-right: 15px;
+    padding-right: 15px;
     font-size: 15px;
 }
 
