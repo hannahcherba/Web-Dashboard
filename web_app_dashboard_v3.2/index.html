@@ -184,8 +184,8 @@
                     <div class="member-container">
                             <img class="pic member-pic" src="images/member-1.jpg" alt="member picture">
                             <div class="member-text new-mem-txt">
-                                <h4>Victoria Chambers</h4>
-                                <a href="#">victoria.chambers80@example.com</a>
+                                <h4 class="message-info">Victoria Chambers</h4>
+                                <a class="message-info" href="#">victoria.chambers80@example.com</a>
                             </div>
                             <p class="date">04/08/23</p>
                     </div>
@@ -194,8 +194,8 @@
                     <div class="member-container">
                             <img class="pic member-pic" src="images/member-2.jpg" alt="member picture">
                             <div class="member-text new-mem-txt">
-                                <h4>Dale Byrd</h4>
-                                <a href="#">dale.byrd52@example.com</a>
+                                <h4 class="message-info">Dale Byrd</h4>
+                                <a class="message-info" href="#">dale.byrd52@example.com</a>
                             </div>
                             <p class="date">04/08/23</p>
                     </div>
@@ -203,8 +203,8 @@
                     <div class="member-container">
                             <img class="pic member-pic" src="images/member-3.jpg" alt="member picture">
                             <div class="member-text new-mem-txt">
-                                <h4>Daun Wood</h4>
-                                <a href="#">daun.wood16@example.com</a>
+                                <h4 class="message-info">Daun Wood</h4>
+                                <a class="message-info" href="#">daun.wood16@example.com</a>
                             </div>
                             <p class="date">04/08/23</p>
                     </div>
@@ -212,8 +212,8 @@
                     <div class="member-container">
                             <img class="pic member-pic" src="images/member-4.jpg" alt="member picture">
                             <div class="member-text new-mem-txt">
-                                <h4>Dan Oliver</h4>
-                                <a href="#">dan.oliver82@example.com</a>
+                                <h4 class="message-info">Dan Oliver</h4>
+                                <a class="message-info" href="#">dan.oliver82@example.com</a>
                             </div>
                             <p class="date">04/08/23</p>
                     </div>
@@ -277,8 +277,13 @@
 
                     <form class="contact-widget">
 
-                        <input type="text" name="search" class="form-field" id="search" placeholder="  Search for User">
-                        
+                        <div class="search-div">
+                            <div class="row">
+                                <input type="text" name="search" class="form-field" id="search" placeholder="  Search for User" autocomplete="off">
+                                <div class="result-box"></div>
+                            </div>
+                        </div>
+                       
                         <textarea id="msg-txt" name="user_message" placeholder="  Message for User"></textarea>
 
                         <button class="btn" id="send" type="submit">SEND</button>
@@ -376,7 +381,7 @@
                 </section>
 
         </main>
-            
+        <script src="app.js"></script>
     </body>
 
 </html>
