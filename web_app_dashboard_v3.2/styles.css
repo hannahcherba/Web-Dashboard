@@ -38,6 +38,7 @@ header, #alert, #fb, #insta, #twitter,
 header h1 {
     padding: 10px;
     margin-right: 25px;
+    font-size: 1.2rem;
 }
 header div.container {
     display:flex;
@@ -60,13 +61,57 @@ div.bell {
     transition: all 0.75s cubic-bezier(0.68, -0.55, 0.265, 1.55 ); 
     transform: rotate(20deg);
 }
-span.dot-notification {
+span#dot-notification {
     background-color: rgb(144, 230, 144);
     border-radius: 50%;
     max-width: 3px;
     height: 3px;
     margin-top: 25px;
     transform: translateX(-22px);
+}
+#notifications ul {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+    border-radius: 7px;
+    padding: 5px;
+    position: absolute;
+    transform: translateX(-75px) translateY(60px);
+    border-bottom: solid 1px rgb(214, 209, 209);
+    border-left: solid 1px rgb(214, 209, 209);
+    border-right: solid 1px rgb(214, 209, 209);
+    box-shadow: 1px 1px 3px rgb(180, 179, 179);
+    display:none;
+    
+}
+#notifications ul li button {
+    background-color: rgb(115, 206, 115);
+    border:1px solid rgb(180, 177, 177);
+    border-radius: 7px;
+    padding: 7px;
+    color: white;
+}
+#notifications ul li button:hover {
+    box-shadow: 1px 1.2px 3px rgb(180, 179, 179);
+    border:1px solid  rgb(95, 195, 95);
+}
+#notifications ul li {
+    color:rgb(29, 27, 27);
+    font-size: 12px;
+    padding: 5px;
+    list-style: none;
+    border-bottom: solid .5px rgb(214, 209, 209); 
+}
+#notifications ul li:last-child{
+    border: none;
+}
+
+#notification-arrow {
+    transform: translateX(16px) translateY(28px) rotateZ(-90deg);
+    position: absolute;
+    font-size: 30px;
+    display:none;
 }
 
 #profile {
@@ -149,6 +194,10 @@ a.main-a:hover {
     padding-right: 15px;
     font-size: 15px;
 }
+#x-btn:hover {
+    color:rgb(97, 92, 145);
+    transform:scale(1.5);
+}
 
 /*==============================================
 Dashboard, traffic, daily traffic, mobile users:
@@ -201,17 +250,20 @@ img.placeholder {
     border-bottom: solid 1px rgb(214, 209, 209);
 }
 #traffic h3.main, #daily-traffic h3, 
-#mobile-users h3, #social-container h3,
+#mobile-users h3, h3.social-head,
 #new-members h3, #recent-activity h3,
 #message h3, #settings h3 {
-    /* margin-left: 20px; */
-    /* width: 100%; */
     justify-content: flex-start;
     margin-bottom: 0;
     padding-left: 20px;
 }
 #daily-traffic {
     grid-area: daily;
+}
+canvas#myChart {
+   width: 60%;
+   padding-left: 30px;
+   padding-right: 30px;
 }
 #mobile-users {
     grid-area: mobile;
@@ -256,6 +308,7 @@ Social Media Widgets
 }
 .social-text h3 {
     margin: 20px 0px 5px 0px;
+    color:rgb(151, 145, 206);
 }
 
 /*=========================================
@@ -356,6 +409,27 @@ input.form-field, textarea#msg-txt, select {
 input.form-field, button.btn, .select-container{
     height: 50px;
 }
+div#sent-msg {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    border-radius: 7px;
+    border:  solid 1px rgb(214, 209, 209);
+    box-shadow: 1px 2px 2px rgb(214, 209, 209);
+    color:rgb(151, 145, 206);
+    padding: 5px;
+    position: absolute;
+    transform: translateX(50px);
+    display: none;
+}
+div#sent-msg p {
+    font-size: 12px;
+    padding: 5px;
+}
+#disappearX:hover {
+    color:rgb(97, 92, 145);
+    transform: scale(1.2);
+}
 textarea#msg-txt {
     height: 175px;
 }
@@ -379,7 +453,7 @@ button.btn, .btn-primary, .btn-disabled {
     margin: 10px;
 }
 .slider-container p {
-    font-size: medium;
+    font-size: 13px;
     color: rgb(57, 50, 50); 
     margin-left: 20px;
 }
@@ -428,7 +502,7 @@ https://www.w3schools.com/howto/howto_css_switch.asp
 .switch {
   position: relative;
   display: inline-block;
-  width: 100px;
+  width: 95px;
   height: 35px;
   margin-right: 20px;
 }
@@ -506,6 +580,12 @@ Media queries
         margin-left: 20px;
     }
 }
+
+@media screen and (min-width:768px) and (max-width: 1000px) {
+    .social-text {
+        margin: 0px 5% 0px 0px;
+    }
+}
 @media screen and (min-width: 768px) {
     body {
         grid-template-columns: 0.5fr 2fr 2fr;
@@ -520,6 +600,9 @@ Media queries
     header h1 {
         margin-left: 20px;
     }
+    #notification-arrow {
+        transform: translateX(16px) translateY(25px) rotateZ(-90deg);
+    }    
     header div.container {
         margin-right: 30px;
     }
@@ -550,7 +633,7 @@ Media queries
     #traffic ul {
         justify-content: flex-end;
     }
-    ul li {
+    #traffic ul li {
         margin-right: 20px;
     }
     #daily-traffic {
@@ -594,7 +677,7 @@ Media queries
     }
     p.member-arrow, .member-container p.date {
         display:flex;
-        padding-left: 30%;
+        padding-left: 10%;
     }
     .member-container p.date {
         padding-right: 10px;
@@ -635,6 +718,9 @@ Media queries
         border-right:  solid 1px rgb(231, 227, 227);
     }
     p.member-arrow {
-        padding-left: 25%;
+        padding-left: 7%;
+    }
+    .switch {
+        margin-right: 150px;
     }
 }
