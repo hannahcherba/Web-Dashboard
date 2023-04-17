@@ -97,19 +97,18 @@
                         <h3 class="main">TRAFFIC</h3>
                     
                         <ul>
-                            <li>Hourly</li>
-                            <li>Daily</li>
-                            <li>Weekly</li>
-                            <li>Monthly</li>
+                            <li id="hour">Hourly</li>
+                            <li id="day">Daily</li>
+                            <li id="week">Weekly</li>
+                            <li id="month">Monthly</li>
                         </ul>
 
                     </div>
                     
-                <div class="chart-container" id="line-graph-container">
-                        <!-- <canvas id="traffic-graph"></canvas> -->
-                        <img class='placeholder' src="placeholder-images/graph-placeholder.jpeg">
-                </div>
-
+                    <div class="chart-container" id="line-graph-container">
+                            <canvas id="traffic-graph" style="position: relative; height:50vh; width:80%"></canvas>
+                    </div>
+                
                 </section>
 
                 <section id="daily-traffic">
@@ -117,11 +116,10 @@
                     <h3>DAILY TRAFFIC</h3>
 
                     <div class="chart-container" id="bar-chart-container">
-                        <canvas id="myChart"></canvas>
-                        <!-- <img class='placeholder' src="placeholder-images/bar-placeholder.jpeg"> -->
-                    </div>
-                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script
- 
+                        <canvas id="bar-chart" style="position: relative; height:50vh; width:80%"></canvas>
+                        
+                     </div>
+  
 
                 </section>
 
@@ -130,8 +128,8 @@
                     <h3>MOBILE USERS</h3>
 
                 <div class="chart-container" id="pie-chart-container">
-                        <!-- <canvas id="pie-chart"></canvas> -->
-                        <img class='placeholder' src="placeholder-images/pie-placeholder.jpeg">
+                        <canvas id="doughnut-chart" style="position: relative; height:50vh; width:80%"></canvas>
+                       
                 </div>
 
                 </section>
@@ -398,6 +396,7 @@
                 </section>
 
         </main>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script src="app.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.1/chart.min.js" integrity="sha512-v3ygConQmvH0QehvQa6gSvTE2VdBZ6wkLOlmK7Mcy2mZ0ZF9saNbbk19QeaoTHdWIEiTlWmrwAL4hS8ElnGFbA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     </body>

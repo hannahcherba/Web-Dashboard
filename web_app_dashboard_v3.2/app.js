@@ -19,6 +19,12 @@ let switchSlider = document.getElementsByClassName('switch');
 const searchWrapper = document.querySelector('.search-div');
 const inputBox = searchWrapper.querySelector('input');
 const resultBox= searchWrapper.querySelector('.result-box');
+const traffic = document.getElementById('traffic-graph');
+const hourlyLi = document.getElementById('hour');
+const dailyLi = document.getElementById('day');
+const weeklyLi = document.getElementById('week');
+const monthlyLi = document.getElementById('month');
+
 
 
 /*----------------------------------
@@ -87,17 +93,234 @@ Create a navigation similar to the one in the mockup to display different data w
  and Monthly buttons so that a different line chart is displayed on click.
 ------------------------------*/
 
+//----------------------------------------
+//Traffic Chart x4 for Exceeds Expectations
+//----------------------------------------
+
+function hourly() {
+
+new Chart(traffic, {
+    type: 'line',
+    data: {
+      labels: ['16-22', '23-29', '30-5', '6-12', '13-19', '20-26', '27-3', '4-10', '11-17', '18-24', '25-31'],
+      datasets: [{
+        data: [750, 1250, 1000, 2000, 1500, 1750, 1300, 1800, 2200, 1500, 2500],
+        borderWidth: 1,
+        backgroundColor: ['rgba(151, 145, 206, 0.492)'],
+        fill: {
+            target: 'origin', 
+            below: 'rgba(151, 145, 206, 0.311)' 
+          },
+          animation: {
+            duration: 0
+            }
+      }]
+    },
+    options: {
+    animations: {
+        tension: {
+            duration: 1000,
+            easing: 'linear',
+            from: 1,
+            to: .35,
+            loop: false
+        }
+    },
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      },
+      plugins: {
+        legend: {
+        display: false
+        }
+        },
+        layout: {
+            padding: 20
+
+    },
+   
+}
+  });
+
+};
+
+
+  function daily() {
+
+    new Chart(traffic, {
+        type: 'line',
+        data: {
+          labels: ['16-22', '23-29', '30-5', '6-12', '13-19', '20-26', '27-3', '4-10', '11-17', '18-24', '25-31'],
+          datasets: [{
+            data: [1200, 2250, 7000, 9000, 3500, 5750, 7300, 9800, 4200, 7500, 3500],
+            borderWidth: 1,
+            backgroundColor: ['rgba(151, 145, 206, 0.492)'],
+            fill: {
+                target: 'origin', 
+                below: 'rgba(151, 145, 206, 0.311)' 
+              }
+          }]
+        },
+        options: {
+        animations: {
+            tension: {
+                duration: 1000,
+                easing: 'linear',
+                from: 1,
+                to: .35,
+                loop: false
+            }
+        },
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          },
+          plugins: {
+            legend: {
+            display: false
+            }
+            },
+            layout: {
+                padding: 20
+    
+        },
+       
+        }
+      });
+  };
+
+  function weekly() {
+    new Chart(traffic, {
+        type: 'line',
+        data: {
+          labels: ['16-22', '23-29', '30-5', '6-12', '13-19', '20-26', '27-3', '4-10', '11-17', '18-24', '25-31'],
+          datasets: [{
+            data: [7700, 12400, 10700, 28000, 15800, 18000, 15000, 17000, 23000, 14000, 25200],
+            borderWidth: 1,
+            backgroundColor: ['rgba(151, 145, 206, 0.492)'],
+            fill: {
+                target: 'origin', 
+                below: 'rgba(151, 145, 206, 0.311)' 
+              }
+          }]
+        },
+        options: {
+        animations: {
+            tension: {
+                duration: 1000,
+                easing: 'linear',
+                from: 1,
+                to: .35,
+                loop: false
+            }
+        },
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          },
+          plugins: {
+            legend: {
+            display: false
+            }
+            },
+            layout: {
+                padding: 20
+    
+        },
+        
+        }
+      });
+  };
+ 
+
+  function monthly() {
+
+    new Chart(traffic, {
+        type: 'line',
+        data: {
+          labels: ['16-22', '23-29', '30-5', '6-12', '13-19', '20-26', '27-3', '4-10', '11-17', '18-24', '25-31'],
+          datasets: [{
+            data: [74000, 122000, 105000, 210000, 155000, 186000, 135000, 173000, 230000, 100000, 210000],
+            borderWidth: 1,
+            backgroundColor: ['rgba(151, 145, 206, 0.492)'],
+            fill: {
+                target: 'origin', 
+                below: 'rgba(151, 145, 206, 0.311)' 
+              }
+          }]
+        },
+        options: {
+        animations: {
+            tension: {
+                duration: 1000,
+                easing: 'linear',
+                from: 1,
+                to: .35,
+                loop: false
+            }
+        },
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          },
+          plugins: {
+            legend: {
+            display: false
+            }
+            },
+            layout: {
+                padding: 20
+    
+        },
+       
+        }
+      });
+  };
+  
+//--------------------
+//Changing charts code:
+//--------------------
+
+hourly();
+
+hourlyLi.addEventListener('click', (e)=> {
+    if (hourlyLi){
+        hourly();
+    }
+})
+
+dailyLi.addEventListener('click', (e)=> {
+    if (dailyLi){
+        daily();
+    }
+})
+
+weeklyLi.addEventListener('click', (e)=> {
+    if (weeklyLi){
+        weekly();
+    }
+})
+
+monthlyLi.addEventListener('click', (e)=> {
+    if (monthlyLi){
+        monthly();
+    }
+})
 
 //Daily Traffic Bar Chart
 
-  const ctx = document.getElementById('myChart');
+  const ctx = document.getElementById('bar-chart');
 
   new Chart(ctx, {
     type: 'bar',
     data: {
       labels: ['S', 'M', 'T', 'W', 'Th', 'F', 'S'],
       datasets: [{
-        label: '# of Cars in Thousands',
         data: [75, 125, 175, 135, 225, 200, 100],
         borderWidth: 1,
         backgroundColor: ['rgb(151, 145, 206)'],
@@ -108,7 +331,49 @@ Create a navigation similar to the one in the mockup to display different data w
         y: {
           beginAtZero: true
         }
-      }
+      },
+      plugins: {
+        legend: {
+        display: false
+        }
+        },
+        layout: {
+            padding: 20
+
+    },
+    
+    }
+  });
+
+//Mobile Doughnut Chart
+
+const doughnut = document.getElementById('doughnut-chart');
+
+new Chart(doughnut, {
+    type: 'doughnut',
+    data: {
+      labels: ['Desktop', 'Tablet', 'Phones'],
+      datasets: [{
+        data: [60, 15, 15],
+        borderWidth: 1,
+        backgroundColor: ['rgb(151, 145, 206)', 'rgb(115, 206, 115)', 'rgb(6, 209, 223)'],
+      }]
+    },
+    options: {
+    plugins: {
+        legend: {
+        position: 'right',
+        labels: {
+        boxWidth: 20,
+        fontStyle: 'bold'
+        }
+        }
+        },
+        layout: {
+            padding: 20
+
+    },
+    
     }
   });
 
@@ -121,31 +386,17 @@ simulate the action using JavaScript.
 **Use JS to display error messages if a user isn’t selected or message field is empty.**
 ------------------------------*/
 
-
-//problem with notification only appearing after clicking button again
-
 sendBtn.addEventListener('click', (e) => {
-    if(sendBtn) {
-        for(let i= 0; i< contacts.length; i++){
-            if(inputBox.textContent != contacts[i] || inputBox.textContent === none) {
-                notifP.textContent="No user selected";
-                sentNotification.style.display="flex";
-            } else {
-                form.submit();
-                notifP.textContent= 'Message sent successfully';
-                sentNotification.style.display="flex";
-            }
-        }
-    }
-});
-
-disappearX.addEventListener('click', (e)=> {
-    if(disappearX){
-        sentNotification.style.display="none";
+    if(inputBox.value === "" && msgField.value === "" ) {
+        alert('No user selected, and no message to send.');
+    } else if (inputBox.value === ""){
+        alert('Please select a user before sending');
+    } else if (msgField.value === "") {
+        alert('No message to send. Please type a message');
+    } else {
+        alert(`Message sent successfully to: ${inputBox.value} `);
     }
 })
-
-
 
 /*-----------------------------
 The JS Search

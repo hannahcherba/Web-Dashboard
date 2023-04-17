@@ -233,15 +233,25 @@ Dashboard, traffic, daily traffic, mobile users:
 #traffic li {
     font-size: 16px;
     margin-top: 5px;
+    border-radius: 20px;
+    padding: 10px;
 }
-/* ----------
-temp image
----------- */
-img.placeholder {
-    max-width: 60%;
-    padding-left: 30px;
+#traffic li:hover {
+    background-color:  rgb(95, 195, 95);
+    color: white;
+    box-shadow: 1px 2px 2px  rgb(214, 209, 209);
+    border: solid 1px rgb(199, 211, 187);
 }
-/* -------------------- */
+.chart-container {
+    width: 100%;
+    /* display: flex;
+    justify-content: center; */
+    padding: 20px;
+}
+
+/* canvas#traffic-graph {
+    width: 100%;
+} */
 
 #traffic, #daily-traffic, 
 #mobile-users, #social-stats,
@@ -260,11 +270,9 @@ img.placeholder {
 #daily-traffic {
     grid-area: daily;
 }
-canvas#myChart {
-   width: 60%;
-   padding-left: 30px;
-   padding-right: 30px;
-}
+/* canvas {
+   max-width: 100%;
+} */
 #mobile-users {
     grid-area: mobile;
 }
