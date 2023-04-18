@@ -94,17 +94,65 @@ Create a navigation similar to the one in the mockup to display different data w
 ------------------------------*/
 
 //----------------------------------------
-//Traffic Chart x4 for Exceeds Expectations
+//Traffic Chart Data x4 for Exceeds Expectations
+//----------------------------------------
+const hour = [
+    {x: Date.parse('2023-04-17 01:00:00 GMT -8:00'), y: 1200},
+    {x: Date.parse('2023-04-17 03:00:00 GMT -8:00'), y: 250},
+    {x: Date.parse('2023-04-17 05:00:00 GMT -8:00'), y: 500},
+    {x: Date.parse('2023-04-17 07:00:00 GMT -8:00'), y: 250},
+    {x: Date.parse('2023-04-17 09:00:00 GMT -8:00'), y: 650},
+    {x: Date.parse('2023-04-17 11:00:00 GMT -8:00'), y: 750},
+    {x: Date.parse('2023-04-17 13:00:00 GMT -8:00'), y: 1300},
+    {x: Date.parse('2023-04-17 15:00:00 GMT -8:00'), y: 1500},
+    {x: Date.parse('2023-04-17 17:00:00 GMT -8:00'), y: 1250},
+    {x: Date.parse('2023-04-17 19:00:00 GMT -8:00'), y: 2000},
+    {x: Date.parse('2023-04-17 21:00:00 GMT -8:00'), y: 700},
+    {x: Date.parse('2023-04-17 24:00:00 GMT -8:00'), y: 300},
+];
+const day = [
+    {x: Date.parse('2023-04-17 00:00:00 GMT -8:00'), y: 1200},
+    {x: Date.parse('2023-04-18 00:00:00 GMT -8:00'), y: 3250},
+    {x:Date.parse('2023-04-19 00:00:00 GMT -8:00'), y: 2000},
+    {x:Date.parse('2023-04-20 00:00:00 GMT -8:00'), y: 4500},
+    {x:Date.parse('2023-04-21 00:00:00 GMT -8:00'), y: 5500},
+    {x:Date.parse('2023-04-22 00:00:00 GMT -8:00'), y: 3750},
+    {x:Date.parse('2023-04-23 00:00:00 GMT -8:00'), y: 2300},
+];
+
+const week = [
+    {x: Date.parse('2023-04-2 00:00:00 GMT -8:00'), y: 11250},
+    {x: Date.parse('2023-04-9 00:00:00 GMT -8:00'), y: 21000},
+    {x: Date.parse('2023-04-16 00:00:00 GMT -8:00'), y: 10000},
+    {x: Date.parse('2023-04-23 00:00:00 GMT -8:00'), y: 15000},
+    {x: Date.parse('2023-04-30 00:00:00 GMT -8:00'), y: 15000},
+];
+
+const month = [
+    {x: Date.parse('2023-01-01 00:00:00 GMT -8:00'), y: 75000},
+    {x: Date.parse('2023-02-01 00:00:00 GMT -8:00'), y: 125000},
+    {x: Date.parse('2023-03-01 00:00:00 GMT -8:00'), y: 100000},
+    {x: Date.parse('2023-04-01 00:00:00 GMT -8:00'), y: 200000},
+    {x: Date.parse('2023-05-01 00:00:00 GMT -8:00'), y: 150000},
+    {x: Date.parse('2023-06-01 00:00:00 GMT -8:00'), y: 175000},
+    {x: Date.parse('2023-07-01 00:00:00 GMT -8:00'), y: 100300},
+    {x: Date.parse('2023-08-01 00:00:00 GMT -8:00'), y: 100800},
+    {x: Date.parse('2023-09-01 00:00:00 GMT -8:00'), y: 220000},
+    {x: Date.parse('2023-10-01 00:00:00 GMT -8:00'), y: 100500},
+    {x: Date.parse('2023-11-01 00:00:00 GMT -8:00'), y: 205000},
+    {x: Date.parse('2023-12-01 00:00:00 GMT -8:00'), y: 250000},
+
+];
+
+//----------------------------------------
+//Traffic Chart
 //----------------------------------------
 
-function hourly() {
-
-new Chart(traffic, {
+const myChart = new Chart(traffic, {
     type: 'line',
     data: {
-      labels: ['16-22', '23-29', '30-5', '6-12', '13-19', '20-26', '27-3', '4-10', '11-17', '18-24', '25-31'],
       datasets: [{
-        data: [750, 1250, 1000, 2000, 1500, 1750, 1300, 1800, 2200, 1500, 2500],
+        data: hour,
         borderWidth: 1,
         backgroundColor: ['rgba(151, 145, 206, 0.492)'],
         fill: {
@@ -127,6 +175,12 @@ new Chart(traffic, {
         }
     },
       scales: {
+        x: {
+            type: 'time',
+            time: {
+                unit: 'day'
+            }
+        },
         y: {
           beginAtZero: true
         }
@@ -144,175 +198,35 @@ new Chart(traffic, {
 }
   });
 
-};
-
-
-  function daily() {
-
-    new Chart(traffic, {
-        type: 'line',
-        data: {
-          labels: ['16-22', '23-29', '30-5', '6-12', '13-19', '20-26', '27-3', '4-10', '11-17', '18-24', '25-31'],
-          datasets: [{
-            data: [1200, 2250, 7000, 9000, 3500, 5750, 7300, 9800, 4200, 7500, 3500],
-            borderWidth: 1,
-            backgroundColor: ['rgba(151, 145, 206, 0.492)'],
-            fill: {
-                target: 'origin', 
-                below: 'rgba(151, 145, 206, 0.311)' 
-              }
-          }]
-        },
-        options: {
-        animations: {
-            tension: {
-                duration: 1000,
-                easing: 'linear',
-                from: 1,
-                to: .35,
-                loop: false
-            }
-        },
-          scales: {
-            y: {
-              beginAtZero: true
-            }
-          },
-          plugins: {
-            legend: {
-            display: false
-            }
-            },
-            layout: {
-                padding: 20
-    
-        },
-       
-        }
-      });
-  };
-
-  function weekly() {
-    new Chart(traffic, {
-        type: 'line',
-        data: {
-          labels: ['16-22', '23-29', '30-5', '6-12', '13-19', '20-26', '27-3', '4-10', '11-17', '18-24', '25-31'],
-          datasets: [{
-            data: [7700, 12400, 10700, 28000, 15800, 18000, 15000, 17000, 23000, 14000, 25200],
-            borderWidth: 1,
-            backgroundColor: ['rgba(151, 145, 206, 0.492)'],
-            fill: {
-                target: 'origin', 
-                below: 'rgba(151, 145, 206, 0.311)' 
-              }
-          }]
-        },
-        options: {
-        animations: {
-            tension: {
-                duration: 1000,
-                easing: 'linear',
-                from: 1,
-                to: .35,
-                loop: false
-            }
-        },
-          scales: {
-            y: {
-              beginAtZero: true
-            }
-          },
-          plugins: {
-            legend: {
-            display: false
-            }
-            },
-            layout: {
-                padding: 20
-    
-        },
-        
-        }
-      });
-  };
- 
-
-  function monthly() {
-
-    new Chart(traffic, {
-        type: 'line',
-        data: {
-          labels: ['16-22', '23-29', '30-5', '6-12', '13-19', '20-26', '27-3', '4-10', '11-17', '18-24', '25-31'],
-          datasets: [{
-            data: [74000, 122000, 105000, 210000, 155000, 186000, 135000, 173000, 230000, 100000, 210000],
-            borderWidth: 1,
-            backgroundColor: ['rgba(151, 145, 206, 0.492)'],
-            fill: {
-                target: 'origin', 
-                below: 'rgba(151, 145, 206, 0.311)' 
-              }
-          }]
-        },
-        options: {
-        animations: {
-            tension: {
-                duration: 1000,
-                easing: 'linear',
-                from: 1,
-                to: .35,
-                loop: false
-            }
-        },
-          scales: {
-            y: {
-              beginAtZero: true
-            }
-          },
-          plugins: {
-            legend: {
-            display: false
-            }
-            },
-            layout: {
-                padding: 20
-    
-        },
-       
-        }
-      });
-  };
-  
 //--------------------
 //Changing charts code:
 //--------------------
 
-hourly();
+function timeFrame(period) {
+  console.log(period.value);
+  if(period.value == 'hour') {
+    myChart.data.datasets[0].data = hour;
+    myChart.options.scales.x.time.unit= 'day'; 
+  } 
+  if(period.value == 'day') {
+    myChart.data.datasets[0].data = day;
+    myChart.options.scales.x.time.unit= period.value; 
+  }
+  if(period.value == 'week') {
+    myChart.data.datasets[0].data = week;
+    myChart.options.scales.x.time.unit= period.value; 
+  }
+  if(period.value == 'month') {
+    myChart.data.datasets[0].data = month;
+    myChart.options.scales.x.time.unit= period.value; 
+  }
+  myChart.update();
+};
 
-hourlyLi.addEventListener('click', (e)=> {
-    if (hourlyLi){
-        hourly();
-    }
-})
 
-dailyLi.addEventListener('click', (e)=> {
-    if (dailyLi){
-        daily();
-    }
-})
-
-weeklyLi.addEventListener('click', (e)=> {
-    if (weeklyLi){
-        weekly();
-    }
-})
-
-monthlyLi.addEventListener('click', (e)=> {
-    if (monthlyLi){
-        monthly();
-    }
-})
-
+//------------------------
 //Daily Traffic Bar Chart
+//------------------------
 
   const ctx = document.getElementById('bar-chart');
 
@@ -345,7 +259,10 @@ monthlyLi.addEventListener('click', (e)=> {
     }
   });
 
+
+//------------------------
 //Mobile Doughnut Chart
+//------------------------
 
 const doughnut = document.getElementById('doughnut-chart');
 

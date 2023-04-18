@@ -230,28 +230,31 @@ Dashboard, traffic, daily traffic, mobile users:
     padding: 0;
 }
 
-#traffic li {
+#traffic button {
     font-size: 16px;
     margin-top: 5px;
     border-radius: 20px;
     padding: 10px;
+    border: none;
+    margin: 2px;
 }
-#traffic li:hover {
+#traffic button:hover {
     background-color:  rgb(95, 195, 95);
     color: white;
     box-shadow: 1px 2px 2px  rgb(214, 209, 209);
     border: solid 1px rgb(199, 211, 187);
 }
 .chart-container {
-    width: 100%;
-    /* display: flex;
-    justify-content: center; */
-    padding: 20px;
+    position: relative;
+    display: flex;
+   justify-content: center;
+    max-width: 100%;
+    min-height: 200px;
+    /* padding: 20px; */
 }
-
-/* canvas#traffic-graph {
+canvas {
     width: 100%;
-} */
+}
 
 #traffic, #daily-traffic, 
 #mobile-users, #social-stats,
@@ -270,9 +273,6 @@ Dashboard, traffic, daily traffic, mobile users:
 #daily-traffic {
     grid-area: daily;
 }
-/* canvas {
-   max-width: 100%;
-} */
 #mobile-users {
     grid-area: mobile;
 }
