@@ -245,18 +245,35 @@ Dashboard, traffic, daily traffic, mobile users:
     border: solid 1px rgb(199, 211, 187);
 }
 .chart-container {
-    position: relative;
-    display: flex;
-   justify-content: center;
-    max-width: 100%;
-    min-height: 200px;
-    /* padding: 20px; */
+   position: relative;
+   padding: 10px;
+   /* padding: 20px;
+   height: 80vh;
+   width: 80vw; */
+   display: flex;
+   justify-content: center; 
 }
-canvas {
-    width: 100%;
+#pie-chart-container {
+    height: 35vh;
+    width: 100vw;
+}
+#bar-chart-container {
+    
+}
+#line-graph-container {
+   padding: 20px;
+}
+#traffic {
+    height: 90%;
+    padding-bottom: 20px;
+}
+#daily-traffic, #mobile-users {
+    height: 90%;
+}
+#mobile-users, #daily-traffic {
+    border-top: solid 1px rgb(214, 209, 209);
 }
 
-#traffic, #daily-traffic, 
 #mobile-users, #social-stats,
 #social-container,
 #message, #settings, .member-container {
@@ -283,6 +300,10 @@ Social Media Widgets
 #social-container {
     padding-bottom: 10px;
     grid-area: social;
+    transform: translateY(-10px);
+}
+.social-head {
+    margin: 0;
 }
 
 #fb, #insta, #twitter {
@@ -646,6 +667,20 @@ Media queries
     }
     #daily-traffic {
         border-right:  solid 1px rgb(231, 227, 227);
+    }
+    #bar-chart-container {
+        height: 30vh;
+        width: 50vw;
+    }
+   #mobile-users {
+        border-top: solid 1px rgb(214, 209, 209);
+    }
+    #pie-chart-container {
+        height: 40vh;
+        width: 40vw;
+    }
+    #mobile-users, #daily-traffic {
+        border-bottom: solid 1px rgb(214, 209, 209);
     }
     .social-c{
         display: flex;

@@ -160,14 +160,14 @@ const myChart = new Chart(traffic, {
             below: 'rgba(151, 145, 206, 0.311)' 
           },
           animation: {
-            duration: 0
+            duration: 30
             }
       }]
     },
     options: {
     animations: {
         tension: {
-            duration: 1000,
+            duration: 2,
             easing: 'linear',
             from: 1,
             to: .35,
@@ -198,9 +198,10 @@ const myChart = new Chart(traffic, {
 }
   });
 
-//--------------------
+//-------------------------------------------------------------------
 //Changing charts code:
-//--------------------
+// Awesome tutorial from https://www.youtube.com/watch?v=EVHi41f7psQ
+//-------------------------------------------------------------------
 
 function timeFrame(period) {
   console.log(period.value);
@@ -315,9 +316,10 @@ sendBtn.addEventListener('click', (e) => {
     }
 })
 
-/*-----------------------------
+/*--------------------------------------------------------------------------------------------------------------
 The JS Search
-------------------------------*/
+Great tutorial from https://www.youtube.com/watch?v=pdyFf1ugVfk&list=PLxRbPnhFKaf3svAUgiwwWZY2lsPICJQaz&index=4
+---------------------------------------------------------------------------------------------------------------*/
 
 //Create a function to listen for key events and compare results
 
