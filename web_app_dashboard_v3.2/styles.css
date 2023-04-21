@@ -26,7 +26,7 @@ header {
 }
 header, header div.container, nav, #notifications ul,
 #alert, #dashboard, #traffic,
-#traffic ul, #fb, #insta, #twitter, .member-container,
+#traffic-btns, #fb, #insta, #twitter, .member-container,
  .member-text, #message, form.contact-widget, #settings,
  .slider-container, div.btn-settings  {
     display: flex;
@@ -227,13 +227,12 @@ desc {
     margin-top: 15px;
     flex-direction: column;
 }
-#traffic ul {
+div#traffic-btns {
     list-style-type: none;
     margin: 5px;
     padding: 0;
 }
-
-#traffic button {
+.traffic-btn{
     font-size: 16px;
     margin-top: 5px;
     border-radius: 20px;
@@ -241,7 +240,7 @@ desc {
     border: none;
     margin: 2px;
 }
-#traffic button:hover {
+.traffic-btn:hover {
     background-color:  rgb(95, 195, 95);
     color: white;
     box-shadow: 1px 2px 2px  rgb(214, 209, 209);
@@ -665,10 +664,10 @@ Media queries
         'settings settings'; 
 
     }
-    #traffic ul {
+    div#traffic-btns {
         justify-content: flex-end;
     }
-    #traffic ul li {
+    .traffic-btn {
         margin-right: 20px;
     }
     #daily-traffic {
