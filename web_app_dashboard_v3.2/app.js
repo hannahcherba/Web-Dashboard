@@ -371,6 +371,8 @@ function save() {
 	  let checkbox = document.getElementById(String(i));
     localStorage.setItem("checkbox" + String(i), checkbox.checked);	
   }
+  lastSelected = select.options[select.selectedIndex].value;
+  localStorage.setItem('select', lastSelected);
 }
 //For loading the checkboxes:
 
@@ -389,17 +391,11 @@ let selectOption = select.options[select.selectedIndex];
 let getLast = localStorage.getItem('select', lastSelected);
 selectOption = getLast;
 
-select.onchange = function () {
-lastSelected = select.options[select.selectedIndex].value;
-localStorage.setItem('select', lastSelected);
-};
-
 //For loading the select:
 
 let selected = localStorage.getItem("select");
 if(selected){
     select.value= selected;
-    select.onchange();
 }
  
 cancelBtn.addEventListener('click', (e)=> {
