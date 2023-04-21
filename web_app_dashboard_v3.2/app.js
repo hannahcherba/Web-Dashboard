@@ -9,13 +9,7 @@ let btnClear = document.getElementById('btn-clear');
 let msgField = document.getElementById('msg-txt');
 let placeholder = document.querySelector('textarea[placeholder]');
 let sendBtn = document.getElementById('send');
-let sentNotification = document.getElementById('sent-msg');
-let notifP= document.getElementById('msg-conf');
-let disappearX = document.getElementById('disappearX');
 let form= document.querySelector('form');
-let saveBtn = document.getElementById('save');
-let cancelBtn = document.getElementById('cancel');
-let switchSlider = document.getElementsByClassName('switch');
 const searchWrapper = document.querySelector('.search-div');
 const inputBox = searchWrapper.querySelector('input');
 const resultBox= searchWrapper.querySelector('.result-box');
@@ -24,6 +18,9 @@ const hourlyLi = document.getElementById('hour');
 const dailyLi = document.getElementById('day');
 const weeklyLi = document.getElementById('week');
 const monthlyLi = document.getElementById('month');
+let saveBtn = document.getElementById('save');
+let cancelBtn = document.getElementById('cancel');
+let boxes = document.getElementsByClassName('box').length;
 
 
 
@@ -357,4 +354,66 @@ Use local storage to save the settings:
 -The settings are saved to local storage when the "Save" button is clicked.
 -The settings are reset when the "Cancel" button is clicked.
 -When page is reloaded the settings are remembered.
+
+
+Helpful tutorial on saving checkboxes: https://codepen.io/kylastoneberg/pen/qweppq
+
+Helpful info on saving selects: https://stackoverflow.com/questions/23905358/how-to-use-localstorage-on-last-html-select-value
+https://www.quora.com/How-do-I-retain-a-value-selected-in-dropdown-using-JavaScript
+
+*Added onclick="save()" directly to save button in html
+
 ------------------------------*/
+
+//Saving The Checkboxes
+function save() {	
+  for(let i = 1; i <= boxes; i++){
+	  let checkbox = document.getElementById(String(i));
+    localStorage.setItem("checkbox" + String(i), checkbox.checked);	
+  }
+}
+//For loading the checkboxes:
+
+for(let i = 1; i <= boxes; i++){
+    if(localStorage.length > 0){
+      let checked = JSON.parse(localStorage.getItem("checkbox" + String(i)));
+      document.getElementById(String(i)).checked = checked;
+    }
+  }
+
+//Saving The Select:
+
+let lastSelected;
+let select = document.querySelector("#timezone");
+let selectOption = select.options[select.selectedIndex];
+let getLast = localStorage.getItem('select', lastSelected);
+selectOption = getLast;
+
+select.onchange = function () {
+lastSelected = select.options[select.selectedIndex].value;
+localStorage.setItem('select', lastSelected);
+};
+
+//For loading the select:
+
+let selected = localStorage.getItem("select");
+if(selected){
+    select.value= selected;
+    select.onchange();
+}
+ 
+cancelBtn.addEventListener('click', (e)=> {
+
+    if(cancelBtn){
+        //Set the checkboxes and select back to default
+        document.getElementById("1").checked = false; 
+        document.getElementById("2").checked = false;
+
+        let defaultOption= document.getElementById('default-option');
+        select.value= defaultOption.value;
+
+        //Clear local storage
+        localStorage.clear();
+
+    }
+})

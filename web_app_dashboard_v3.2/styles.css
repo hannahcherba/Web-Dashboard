@@ -9,7 +9,7 @@ body {
     margin: 0px;
     display: grid;
     grid-template-columns:1fr;
-      grid-template-areas: 
+    grid-template-areas: 
       "header" 
       "nav" 
      'main';
@@ -24,7 +24,8 @@ header {
     max-width: 100%;
     grid-area: header;
 }
-header, nav, #alert, #dashboard, #traffic,
+header, header div.container, nav, #notifications ul,
+#alert, #dashboard, #traffic,
 #traffic ul, #fb, #insta, #twitter, .member-container,
  .member-text, #message, form.contact-widget, #settings,
  .slider-container, div.btn-settings  {
@@ -41,7 +42,6 @@ header h1 {
     font-size: 1.2rem;
 }
 header div.container {
-    display:flex;
     flex-direction: row;
 }
 
@@ -49,17 +49,18 @@ div.bell {
     width: 50px;
     height: 55px;
     padding: 12px 15px 7px 7px;
-    margin-top: 20px;
+    margin-top: 10px;
     margin-right: 5px;
     border-right: solid 1px rgb(242, 235, 235);
 }
 .bell-icon {
     fill: white;
-    transform-origin: 0 0;
+    transform-origin: 50% 50%;
+    display: block;
 }
 .bell-icon:hover {
     transition: all 0.75s cubic-bezier(0.68, -0.55, 0.265, 1.55 ); 
-    transform: rotate(20deg);
+    transform: rotate(20deg) scale(1.1);
 }
 span#dot-notification {
     background-color: rgb(144, 230, 144);
@@ -70,7 +71,6 @@ span#dot-notification {
     transform: translateX(-22px);
 }
 #notifications ul {
-    display:flex;
     flex-direction: column;
     justify-content: center;
     background-color: white;
@@ -175,6 +175,7 @@ a.main-a:hover {
 }
 .house, .bar, .memb, .sett {
     fill: white;
+    display: block;
 }
 
 #alert {
@@ -218,7 +219,9 @@ Dashboard, traffic, daily traffic, mobile users:
     border-left: solid 1px rgb(214, 209, 209);
     border-bottom: solid 1px rgb(214, 209, 209);
 }
-
+desc {
+    display: none;
+}
 #traffic {
     grid-area: traffic;
     margin-top: 15px;
@@ -247,18 +250,12 @@ Dashboard, traffic, daily traffic, mobile users:
 .chart-container {
    position: relative;
    padding: 10px;
-   /* padding: 20px;
-   height: 80vh;
-   width: 80vw; */
    display: flex;
    justify-content: center; 
 }
 #pie-chart-container {
     height: 35vh;
     width: 100vw;
-}
-#bar-chart-container {
-    
 }
 #line-graph-container {
    padding: 20px;
@@ -274,8 +271,7 @@ Dashboard, traffic, daily traffic, mobile users:
     border-top: solid 1px rgb(214, 209, 209);
 }
 
-#mobile-users, #social-stats,
-#social-container,
+#mobile-users, #social-stats, #social-container,
 #message, #settings, .member-container {
     border-bottom: solid 1px rgb(214, 209, 209);
 }
@@ -316,9 +312,10 @@ Social Media Widgets
 .fb, .insta, .twitter {
     fill: white;
     width: 50%;
-    
+    display: block;  
 }
-.fb-container, .insta-container, .twitter-container {
+.fb-container, .insta-container, 
+.twitter-container {
     background-color:rgb(241, 240, 244);
     border:  solid 1px rgb(214, 209, 209);
     display: flex;
@@ -428,11 +425,11 @@ input.form-field {
     font-size: 15px;
     border-radius: 7px;
 }
-.result-box ul li:hover {
+.result-box ul li:hover,
+input.form-field, textarea#msg-txt, select {
     background-color:rgb(245, 245, 247);
 }
 input.form-field, textarea#msg-txt, select {
-    background-color:rgb(245, 245, 247);
     font-size: 15px;
 }
 input.form-field, button.btn, .select-container{
@@ -522,6 +519,15 @@ div.btn-settings {
 .btn-disabled {
     background-color:  rgb(180, 177, 177);
 }
+.btn-primary, .btn-disabled, button.btn {
+    transition-property: background-color;
+    transition-duration: 1.2s;
+}
+.btn-primary:hover, .btn-disabled:hover, button.btn:hover {
+    background-color:rgb(97, 92, 145);
+    box-shadow: 1px 1px 2px rgb(180, 177, 177);
+    transform: scale(1.01);
+}
 /*=========================================
 Slider checkbox tutorial from 
 https://www.w3schools.com/howto/howto_css_switch.asp
@@ -531,7 +537,7 @@ https://www.w3schools.com/howto/howto_css_switch.asp
 .switch {
   position: relative;
   display: inline-block;
-  width: 95px;
+  width: 98px;
   height: 35px;
   margin-right: 20px;
 }
@@ -741,7 +747,7 @@ Media queries
         grid-template-columns: 0.35fr 2fr 2fr;
         grid-template-areas: 
         "header header header" 
-        "nav main main" ;
+        "nav main main";
     }
     header {
         justify-content: space-between;
@@ -764,6 +770,9 @@ Media queries
         padding-left: 7%;
     }
     .switch {
-        margin-right: 150px;
+        margin-right: 30%;
+    }
+    div.btn-settings {
+        margin: 28px 10px 10px 10px;
     }
 }
