@@ -1,0 +1,777 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Varela Round', sans-serif;
+    margin: 0px;
+    display: grid;
+    grid-template-columns:1fr;
+    grid-template-areas: 
+      "header" 
+      "nav" 
+     'main';
+
+}
+
+/*=========================================
+Header
+===========================================*/
+header {
+    color: white;
+    max-width: 100%;
+    grid-area: header;
+}
+header, header div.container, nav, #notifications ul,
+#alert, #dashboard, #traffic,
+#traffic-btns, #fb, #insta, #twitter, .member-container,
+ .member-text, #message, form.contact-widget, #settings,
+ .slider-container, div.btn-settings  {
+    display: flex;
+}
+header, #alert, #fb, #insta, #twitter,
+ button.btn, .btn-primary, 
+ input:checked + .slider {
+    background-color: rgb(151, 145, 206);
+}
+header h1 {
+    padding: 10px;
+    margin-right: 25px;
+    font-size: 1.2rem;
+}
+header div.container {
+    flex-direction: row;
+}
+
+div.bell {
+    width: 50px;
+    height: 55px;
+    padding: 12px 15px 7px 7px;
+    margin-top: 10px;
+    margin-right: 5px;
+    border-right: solid 1px rgb(242, 235, 235);
+}
+.bell-icon {
+    fill: white;
+    transform-origin: 50% 50%;
+    display: block;
+}
+.bell-icon:hover {
+    transition: all 0.75s cubic-bezier(0.68, -0.55, 0.265, 1.55 ); 
+    transform: rotate(20deg) scale(1.1);
+}
+span#dot-notification {
+    background-color: rgb(144, 230, 144);
+    border-radius: 50%;
+    max-width: 3px;
+    height: 3px;
+    margin-top: 25px;
+    transform: translateX(-22px);
+}
+#notifications ul {
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+    border-radius: 7px;
+    padding: 5px;
+    position: absolute;
+    transform: translateX(-75px) translateY(60px);
+    border-bottom: solid 1px rgb(214, 209, 209);
+    border-left: solid 1px rgb(214, 209, 209);
+    border-right: solid 1px rgb(214, 209, 209);
+    box-shadow: 1px 1px 3px rgb(180, 179, 179);
+    display:none;
+    
+}
+#notifications ul li button {
+    background-color: rgb(115, 206, 115);
+    border:1px solid rgb(180, 177, 177);
+    border-radius: 7px;
+    padding: 7px;
+    color: white;
+}
+#notifications ul li button:hover {
+    box-shadow: 1px 1.2px 3px rgb(180, 179, 179);
+    border:1px solid  rgb(95, 195, 95);
+}
+#notifications ul li {
+    color:rgb(29, 27, 27);
+    font-size: 12px;
+    padding: 5px;
+    list-style: none;
+    border-bottom: solid .5px rgb(214, 209, 209); 
+}
+#notifications ul li:last-child{
+    border: none;
+}
+
+#notification-arrow {
+    transform: translateX(16px) translateY(28px) rotateZ(-90deg);
+    position: absolute;
+    font-size: 30px;
+    display:none;
+}
+
+#profile {
+    width: 55px;
+    height: 55px;
+    padding: 5px;
+    margin-top: 15px;
+}
+
+.pic {
+    border-radius: 50%;
+}
+
+header h3 {
+    margin-top: 30px;
+    font-size: 11px;
+    margin-left: 7px;
+}
+/*=========================================
+------------------------------------------
+MAIN ELEMENTS: 
+__________________________________________
+==========================================*/
+main {
+    grid-area: main;
+    display: grid;
+    grid-template-columns:1fr;
+    grid-template-areas: 
+      'dash'
+      'alert'
+      'traffic' 
+      'daily'
+      'mobile'
+      'social'
+      'members'
+      'activity'
+      'message'
+      'settings';
+
+}
+
+/*=========================================
+Nav and Alert
+===========================================*/
+
+nav {
+    background-color:rgb(97, 92, 145);
+    grid-area: nav;
+}
+nav, #traffic ul {
+    justify-content: space-evenly;
+}
+a.main-a {
+    margin: 15px 0px;
+    width: 40px;
+
+}
+a.main-a:hover {
+    transition: all 0.75s cubic-bezier(0.68, -0.55, 0.265, 1.55 ); 
+    transform: scale(1.2);  
+}
+.house, .bar, .memb, .sett {
+    fill: white;
+    display: block;
+}
+
+#alert {
+    justify-content: space-between;
+    border-radius: 7px;
+    width: 90%;
+    margin: 15px auto auto auto;
+    color: white;
+    grid-area: alert;
+}
+#alert-message {
+    padding-left: 10px;
+    font-size: 15px;
+}
+
+#x-btn {
+    padding-right: 15px;
+    font-size: 15px;
+}
+#x-btn:hover {
+    color:rgb(97, 92, 145);
+    transform:scale(1.5);
+}
+
+/*==============================================
+Dashboard, traffic, daily traffic, mobile users:
+===============================================*/
+#dashboard {
+    grid-area: dash;
+    height: 70px;
+
+}
+#dashboard h2 {
+    width: 250px;
+    margin-left: 20px;
+}
+#gray-space {
+    background-color:rgb(241, 240, 244);
+    height: 100%;
+    width: 100%;
+    border-left: solid 1px rgb(214, 209, 209);
+    border-bottom: solid 1px rgb(214, 209, 209);
+}
+desc {
+    display: none;
+}
+#traffic {
+    grid-area: traffic;
+    margin-top: 15px;
+    flex-direction: column;
+}
+div#traffic-btns {
+    list-style-type: none;
+    margin: 5px;
+    padding: 0;
+}
+.traffic-btn{
+    font-size: 16px;
+    margin-top: 5px;
+    border-radius: 20px;
+    padding: 10px;
+    border: none;
+    margin: 2px;
+}
+.traffic-btn:hover {
+    background-color:  rgb(95, 195, 95);
+    color: white;
+    box-shadow: 1px 2px 2px  rgb(214, 209, 209);
+    border: solid 1px rgb(199, 211, 187);
+}
+.chart-container {
+   position: relative;
+   padding: 10px;
+   display: flex;
+   justify-content: center; 
+}
+#pie-chart-container {
+    height: 35vh;
+    width: 100vw;
+}
+#line-graph-container {
+   padding: 20px;
+}
+#traffic {
+    height: 90%;
+    padding-bottom: 20px;
+}
+#daily-traffic, #mobile-users {
+    height: 90%;
+}
+#mobile-users, #daily-traffic {
+    border-top: solid 1px rgb(214, 209, 209);
+}
+
+#mobile-users, #social-stats, #social-container,
+#message, #settings, .member-container {
+    border-bottom: solid 1px rgb(214, 209, 209);
+}
+#traffic h3.main, #daily-traffic h3, 
+#mobile-users h3, h3.social-head,
+#new-members h3, #recent-activity h3,
+#message h3, #settings h3 {
+    justify-content: flex-start;
+    margin-bottom: 0;
+    padding-left: 20px;
+}
+#daily-traffic {
+    grid-area: daily;
+}
+#mobile-users {
+    grid-area: mobile;
+}
+
+/*=========================================
+Social Media Widgets
+===========================================*/
+#social-container {
+    padding-bottom: 10px;
+    grid-area: social;
+    transform: translateY(-10px);
+}
+.social-head {
+    margin: 0;
+}
+
+#fb, #insta, #twitter {
+    justify-content: center;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    margin-top: 15px;
+}
+.fb, .insta, .twitter {
+    fill: white;
+    width: 50%;
+    display: block;  
+}
+.fb-container, .insta-container, 
+.twitter-container {
+    background-color:rgb(241, 240, 244);
+    border:  solid 1px rgb(214, 209, 209);
+    display: flex;
+    justify-content:space-around;
+    border-radius: 7px;
+    width: 90%;
+    margin: 15px auto;
+    height: 100px;
+}
+.social-text {
+    margin: 0px 25% 0px 0px;
+}
+.social-text h2 {
+    font-size: 35px;
+    margin: 0;
+}
+.social-text h3 {
+    margin: 20px 0px 5px 0px;
+    color:rgb(151, 145, 206);
+}
+
+/*=========================================
+New Member, Recent Activity, Message, and 
+Settings widgets:
+===========================================*/
+
+#new-members {
+    grid-area: members;
+}
+#recent-activity {
+    grid-area: activity;
+}
+#message {
+    grid-area: message;
+}
+#settings {
+    grid-area: settings;
+}
+.member-container, .member-text {
+    flex-direction: column;
+    align-items: center;
+}
+.member-container {
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+.member-pic {
+    width: 75px;
+}
+.member-text a {
+    text-decoration: none;
+    color: rgb(151, 145, 206);
+}
+.activity-text {
+    width: 70%;
+    text-align: center;
+    color: rgb(29, 27, 27); 
+}
+.member-arrow  {
+    display: none;
+}
+.activity-text a {
+    color: black;
+    font-size: 14px;
+}
+.activity-text h4, .member-text h4{
+    margin-bottom: 2px;
+    margin-top: 10px;
+}
+.activity-text p, .member-text p {
+    margin-bottom: 15px;
+    margin-top: 0px;
+}
+#message, form.contact-widget {
+    flex-direction: column;
+}
+form.contact-widget {
+    justify-content: center;
+    margin: 20px 15px 10px 15px;
+}
+input.form-field, textarea#msg-txt, button.btn{
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border:  solid 1px rgb(214, 209, 209);
+    font-family: 'Varela Round', sans-serif;
+}
+input.form-field {
+    width:100%;
+}
+.search-div.active .result-box {
+    padding: 10px 8px;
+    opacity: 1;
+    pointer-events: auto;
+}
+.result-box ul {
+    max-height: 200px;
+    overflow-y: scroll;
+    list-style: none;
+    padding: 0px 5px 5px 5px;
+    margin-top: 0;
+    position:absolute;
+    background-color: white;
+    border-radius: 7px;
+}
+.result-box ul li {
+    padding:15px;
+    font-size: 15px;
+    border-radius: 7px;
+}
+.result-box ul li:hover,
+input.form-field, textarea#msg-txt, select {
+    background-color:rgb(245, 245, 247);
+}
+input.form-field, textarea#msg-txt, select {
+    font-size: 15px;
+}
+input.form-field, button.btn, .select-container{
+    height: 50px;
+}
+div#sent-msg {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    border-radius: 7px;
+    border:  solid 1px rgb(214, 209, 209);
+    box-shadow: 1px 2px 2px rgb(214, 209, 209);
+    color:rgb(151, 145, 206);
+    padding: 5px;
+    position: absolute;
+    transform: translateX(50px);
+    display: none;
+}
+div#sent-msg p {
+    font-size: 12px;
+    padding: 5px;
+}
+#disappearX:hover {
+    color:rgb(97, 92, 145);
+    transform: scale(1.2);
+}
+textarea#msg-txt {
+    height: 175px;
+}
+textarea#msg-txt::placeholder {
+   padding-top: 10px;
+}
+input.form-field::placeholder, textarea#msg-txt::placeholder, select {
+    color:rgb(167, 164, 164);
+}
+button.btn, .btn-primary, .btn-disabled {
+    border:rgb(80, 68, 189);
+    color: white;
+    font-size: 17px;
+}
+#settings {
+    flex-direction: column;
+}
+.slider-container {
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px;
+}
+.slider-container p {
+    font-size: 13px;
+    color: rgb(57, 50, 50); 
+    margin-left: 20px;
+}
+.select-container select {
+    background: transparent;
+    width: 100%;
+    height: 100%;
+    border-radius: 7px;
+    appearance: none;
+    padding: 5px;
+    text-indent: 10px;
+    border: none;
+  }
+  
+.select-container {
+    background: url("placeholder-images/arrow2.PNG") no-repeat right #ffffff;
+    background-size: 50px;
+    border:  solid 1px rgb(214, 209, 209);
+    background-color:rgb(245, 245, 247);
+    border-radius: 7px;
+    width: 90%;
+    overflow: hidden;
+    align-self: center;
+    margin-top: 45px;
+}
+div.btn-settings {
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px;
+}
+.btn-primary, .btn-disabled {
+    width: 40%;
+    height: 50px;
+    border-radius: 7px;
+    margin: 10px 20px;
+}
+.btn-disabled {
+    background-color:  rgb(180, 177, 177);
+}
+.btn-primary, .btn-disabled, button.btn {
+    transition-property: background-color;
+    transition-duration: 1.2s;
+}
+.btn-primary:hover, .btn-disabled:hover, button.btn:hover {
+    background-color:rgb(97, 92, 145);
+    box-shadow: 1px 1px 2px rgb(180, 177, 177);
+    transform: scale(1.01);
+}
+/*=========================================
+Slider checkbox tutorial from 
+https://www.w3schools.com/howto/howto_css_switch.asp
+===========================================*/
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 98px;
+  height: 35px;
+  margin-right: 20px;
+}
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+/* input:checked + .slider {
+  background-color: rgb(151, 145, 206);
+} */
+
+input:focus + .slider {
+  box-shadow: 0 0 1px rgb(80, 68, 189);
+  border:  solid 1px  rgb(180, 177, 177);
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(65px);
+  -ms-transform: translateX(65px);
+  transform: translateX(65px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+.slider-container{
+    margin-top: 20px;
+}
+span {
+    font-size: 12px;
+    color: white;
+    padding-top: 9px;
+    padding-left: 8px;
+}
+
+/*=========================================
+Media queries
+===========================================*/
+@media screen and (min-width: 390px) {
+    #dashboard h2 {
+        width: 200px;
+        margin-left: 20px;
+    }
+}
+
+@media screen and (min-width:768px) and (max-width: 1000px) {
+    .social-text {
+        margin: 0px 5% 0px 0px;
+    }
+}
+@media screen and (min-width: 768px) {
+    body {
+        grid-template-columns: 0.5fr 2fr 2fr;
+        grid-template-areas: 
+        "header header header" 
+        "nav main main" ;
+    }
+
+    header {
+       justify-content: space-between;
+    }
+    header h1 {
+        margin-left: 20px;
+    }
+    #notification-arrow {
+        transform: translateX(16px) translateY(25px) rotateZ(-90deg);
+    }    
+    header div.container {
+        margin-right: 30px;
+    }
+    header h3 {
+        font-size: 15px;
+    }
+    a.main-a {
+        margin: 20px auto;
+    }
+    nav {
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+    main {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+        'dash dash'
+        "alert alert" 
+        'traffic traffic'
+        'daily mobile' 
+        'social social'
+        'members members'
+        'activity activity'
+        'message message'
+        'settings settings'; 
+
+    }
+    div#traffic-btns {
+        justify-content: flex-end;
+    }
+    .traffic-btn {
+        margin-right: 20px;
+    }
+    #daily-traffic {
+        border-right:  solid 1px rgb(231, 227, 227);
+    }
+    #bar-chart-container {
+        height: 30vh;
+        width: 50vw;
+    }
+   #mobile-users {
+        border-top: solid 1px rgb(214, 209, 209);
+    }
+    #pie-chart-container {
+        height: 40vh;
+        width: 40vw;
+    }
+    #mobile-users, #daily-traffic {
+        border-bottom: solid 1px rgb(214, 209, 209);
+    }
+    .social-c{
+        display: flex;
+        justify-content: space-evenly;
+    }
+    .social {
+        width: 31%;
+    }
+    .fb-container {
+        margin-left: 20px;
+    }
+    #new-members {
+        justify-content: flex-start;
+    }
+    .member-container {
+        align-items: flex-start;
+        flex-direction: row;
+    }
+    .member-container img {
+        margin-left: 10px;
+        margin-bottom: 10px;
+    }
+    .new-mem-txt, .activity-text{
+        align-items: flex-start;
+        margin-left: 30px;
+        font-size: 11px;
+    }
+    .member-text{
+        width: 70%;
+    }
+    .new-mem-txt p {
+        align-self: flex-end;
+    }
+    
+    .activity-text h4 {
+       text-align: left;
+    }
+    p.member-arrow, .member-container p.date {
+        display:flex;
+        padding-left: 10%;
+    }
+    .member-container p.date {
+        padding-right: 10px;
+        font-size: 13px;
+        padding-left: 20%;
+    }
+    p.member-arrow {
+        font-size: 20px;
+        color:rgb(151, 145, 206);
+    }
+    .switch {
+        margin-right: 300px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    body {
+        grid-template-columns: 0.35fr 2fr 2fr;
+        grid-template-areas: 
+        "header header header" 
+        "nav main main";
+    }
+    header {
+        justify-content: space-between;
+     }
+    main {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+        'dash dash'
+        "alert alert" 
+        'traffic traffic'
+        'daily mobile' 
+        'social social'
+        'members activity'
+        'message settings'; 
+    }
+    #message, #new-members {
+        border-right:  solid 1px rgb(231, 227, 227);
+    }
+    p.member-arrow {
+        padding-left: 7%;
+    }
+    .switch {
+        margin-right: 30%;
+    }
+    div.btn-settings {
+        margin: 28px 10px 10px 10px;
+    }
+}
